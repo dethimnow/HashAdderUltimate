@@ -1,4 +1,25 @@
 
+*********************
+This is an update HashAdder script. Changes include:
+*********************
+
+Collision–List Generation:
+The script computes a “twos” list from a starting point (based on the user’s public key and input parameter) and then uses parallel processing (via a ProcessPoolExecutor) to compute collision entries. The results are bucketed (using a prefix derived from the candidate’s x–coordinate) and presorted before being saved.
+
+Multiplication Grid:
+A precomputed grid is built so that the “multiply_num()” function quickly computes the elliptic curve point corresponding to a given candidate integer.
+
+Search Routines:
+Three search methods are implemented:
+
+Lookup Grid Search / Reverse Grid Search: These iterate over “grid rows.”
+Random Search: This performs a random walk through candidate keys.
+easyCount() Search (New):
+This adaptive iterative search uses the “density” of collision entries in the candidate’s bucket to adjust the search step size. If a candidate’s bucket is empty the step is increased; if the bucket is dense the step is reduced—narrowing the search region. Progress (iterations per second) is printed periodically.
+Multi–Key Input and Device Selection:
+Users may input multiple public keys (which are added if they share the same curve) and select between CPU and GPU (currently GPU falls back to CPU).
+
+
 NOTICE:  YOU MUST KNOW HOW TO RUN A PYTHON PROGRAM FROM THE COMMAND LINE / TERMINAL IN ORDER TO USE THIS TOOL!!!
 
 ************
@@ -151,16 +172,3 @@ giving a resulting chart like this:
 -((key/8)/27)---((key/4)/27)---((key/2)/27)---(key/27)---((key*2)/27)---((key*4)/27)---((key*8)/27)-
 ****************************************************************************************************
 
-*********************
-**Upcoming features**
-*********************
-
--- Collision Lists Saved to Disk with Presort
--- Multi-Threading
--- Multi-Core Processing
--- Multi-Key Input Support
--- Working Public Key Addition Between Different Curves
--- Total Time To Completion Estimates for Large Collision Lists
--- "easyCount()" Search Space Division with iterative counting and "Narrowing"
--- Probability / Progress increase per hour updates
--- GPU and CPU Support with Scaling (Currently Only CPUs are supported)
