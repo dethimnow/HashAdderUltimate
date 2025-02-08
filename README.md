@@ -1,6 +1,6 @@
 
 *********************
-This is an update HashAdder script. Changes include:
+This is an updated HashAdder script. Changes include:
 *********************
 The search range (for collision list and search) is currently set to 4000000000000000000000000000000000:7fffffffffffffffffffffffffffffffff (for Puzzle 135) - you can edit it in the code, but later i will add an input so that you can specify your own range.
 
