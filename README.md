@@ -2,6 +2,7 @@
 *********************
 This is an update HashAdder script. Changes include:
 *********************
+The search range (for collision list and search) is currently set to 4000000000000000000000000000000000:7fffffffffffffffffffffffffffffffff (for Puzzle 135) - you can edit it in the code, but later i will add an input so that you can specify your own range.
 
 Collision–List Generation:
 The script computes a “twos” list from a starting point (based on the user’s public key and input parameter) and then uses parallel processing (via a ProcessPoolExecutor) to compute collision entries. The results are bucketed (using a prefix derived from the candidate’s x–coordinate) and presorted before being saved.
